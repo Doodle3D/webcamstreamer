@@ -1,0 +1,8 @@
+#!/bin/sh /etc/rc.common
+# This file is part of the Doodle3D project (http://doodle3d.com).
+#
+# Copyright (c) 2013, Doodle3D
+# This software is licensed under the terms of the GNU GPL v2 or later.
+# See file LICENSE.txt or visit http://www.gnu.org/licenses/gpl.html for full license details.
+
+mjpg_streamer -i "./input_uvc.so -n -y -q 100 -f 2" -o "./output_http.so -w /www" > /tmp/webcamstreamer.log 2> /tmp/webcamstreamer.log

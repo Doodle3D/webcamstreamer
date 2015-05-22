@@ -1,0 +1,21 @@
+#!/bin/sh /etc/rc.common
+# This file is part of the Doodle3D project (http://doodle3d.com).
+#
+# Copyright (c) 2013, Doodle3D
+# This software is licensed under the terms of the GNU GPL v2 or later.
+# See file LICENSE.txt or visit http://www.gnu.org/licenses/gpl.html for full license details.
+
+START=99
+
+start() {
+        logger -t print3d-mgr "Starting notifyd webcamstreamer"
+
+        inotifyd /usr/libexec/webcamstreamer /dev:n
+}
+
+stop() {
+        #Note: this method of stopping processes is too coarse, it should keep pid files or something similar
+        #and print3d-runner.sh should use an exit handler (`trap exit_handler TERM`) to make sure the socket is removed
+
+        logger -t print3d-mgr "Stopping notifyd webcamstreamer"
+}
